@@ -188,9 +188,6 @@
 import { ref, computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useI18n } from '../composables/useI18n'
-// Import products from Website folder
-import { products, categories as websiteCategories } from '../../../Website/src/data/products.js'
-
 import { useUIStore } from '../stores/ui'
 import { useTaxStore } from '../stores/tax'
 import { useProductsStore } from '../stores/products'
@@ -209,6 +206,9 @@ const selectedCategory = ref('')
 // Get current tax rate from store
 const currentTaxRate = computed(() => taxStore.currentTaxRate)
 
+// Get products from store
+const products = computed(() => productsStore.products)
+
 // Initialize stores on mount
 onMounted(() => {
   taxStore.init()
@@ -217,13 +217,13 @@ onMounted(() => {
 
 // Generate orders from products (simulating order data)
 const generateOrders = () => {
-  if (!products || !Array.isArray(products) || products.length === 0) {
+  if (!products.value || !Array.isArray(products.value) || products.value.length === 0) {
     return []
   }
-  return products.map((product, index) => {
+  return products.value.map((product, index) => {
     // Generate random quantity between 1 and 5
     const quantity = Math.floor(Math.random() * 5) + 1
-    const price = product.price
+    const price = product.price || 0
     const discount = product.discount || 0
     const discountAmount = (price * quantity * discount) / 100
     const subtotal = (price * quantity) - discountAmount
@@ -232,8 +232,8 @@ const generateOrders = () => {
 
     return {
       id: `order-${index + 1}`,
-      productName: product.title,
-      category: product.category,
+      productName: product.name || '',
+      category: product.category || '',
       price: price,
       discount: discount,
       quantity: quantity,
@@ -245,9 +245,11 @@ const generateOrders = () => {
 
 const orders = ref([])
 
-// Get unique categories from products (excluding 'All Products')
+// Get unique categories from products
 const categories = computed(() => {
-  return websiteCategories.filter(cat => cat !== 'All Products')
+  if (!products.value || products.value.length === 0) return []
+  const unique = new Set(products.value.map(p => p?.category).filter(Boolean))
+  return Array.from(unique).sort()
 })
 
 const filteredOrders = computed(() => {
