@@ -1,0 +1,87 @@
+[
+  {
+    "id": 1,
+    "date": "2024-01-01",
+    "rate": 10,
+    "description": "Standard tax rate",
+    "created": "2024-01-01"
+  },
+  {
+    "id": 2,
+    "date": "2024-01-15",
+    "rate": 12,
+    "description": "Updated tax rate",
+    "created": "2024-01-15"
+  },
+  {
+    "id": 1,
+    "date": "2024-01-01",
+    "rate": 10,
+    "description": "Standard tax rate",
+    "created": "2024-01-01"
+  },
+  {
+    "id": 2,
+    "date": "2024-01-15",
+    "rate": 12,
+    "description": "Updated tax rate",
+    "created": "2024-01-15"
+  },
+  {
+    "id": 1,
+    "date": "2024-01-01",
+    "rate": 10,
+    "description": "Standard tax rate",
+    "created": "2024-01-01"
+  },
+  {
+    "id": 2,
+    "date": "2024-01-15",
+    "rate": 12,
+    "description": "Updated tax rate",
+    "created": "2024-01-15"
+  },
+  {
+    "id": 1,
+    "date": "2024-01-01",
+    "rate": 10,
+    "description": "Standard tax rate",
+    "created": "2024-01-01"
+  },
+  {
+    "id": 2,
+    "date": "2024-01-15",
+    "rate": 12,
+    "description": "Updated tax rate",
+    "created": "2024-01-15"
+  },
+  {
+    "id": 1,
+    "date": "2024-01-01",
+    "rate": 10,
+    "description": "Standard tax rate",
+    "created": "2024-01-01"
+  },
+  {
+    "id": 2,
+    "date": "2024-01-15",
+    "rate": 12,
+    "description": "Updated tax rate",
+    "created": "2024-01-15"
+  },
+  {
+    "id": 1,
+    "date": "2024-01-01",
+    "rate": 10,
+    "description": "Standard tax rate",
+    "created": "2024-01-01"
+  },
+  {
+    "id": 2,
+    "date": "2024-01-15",
+    "rate": 12,
+    "description": "Updated tax rate",
+    "created": "2024-01-15"
+  }
+]
+
